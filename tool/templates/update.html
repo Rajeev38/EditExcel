@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{%static 'main.css' %}">
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+<h1>Enter Data</h1>
+<h3>Note: First field is used as Key and enter values for only those fied which will be updated</h3>
+<form action="{% url 'update'%}" method="post">
+    {% csrf_token %}
+    {% for i in range %}
+        <input type="text" name="{{i}}">
+    {% endfor %}
+    <input type="hidden" value="{{size}}" name="size">
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>

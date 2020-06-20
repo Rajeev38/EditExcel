@@ -1,0 +1,38 @@
+body{
+ background-image: url('solid-color-background-1.jpg');
+}
+
+div {
+   float:left;
+   background-color: grey;
+   width: 100%;
+   margin-top : 15px;
+
+}
+ul {
+   display : inline
+}
+
+li {
+   float : left;
+   margin: 5px;
+}
+
+p {
+   margin: 5px;
+}
+
+table{
+float:left;
+
+}
+table,tr,td{
+  border: 3px solid black;
+  border-collapse: collapse;
+}
+
+td{
+align: center;
+padding: 10px;
+color : white;
+}

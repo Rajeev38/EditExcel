@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{%static 'main.css' %}">
+    <meta charset="UTF-8">
+    <title>Editor</title>
+</head>
+<body>
+
+<header>
+    <h1>Select a File</h1>
+</header>
+
+<form action="{%url 'savefile' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="excelfile" required>
+    <input type="submit" value="Select">
+</form>
+
+<div>
+  {% if file %}
+    <p>{{file}}</p>
+    <form action="{%url 'create' %}" method="post">
+        {% csrf_token %}
+    <ul type="None">
+        <li>Enter no. of columns:</li>
+        <li><input type="text" name="column" id="column" required></li>
+        <li><input type="submit" value="Create" id="create" name="create"></li>
+        <li><input type="submit" value="Retrieve" id="retrieve" name="retrieve"></li>
+        <li><input type="submit" value="Update" id="update" name="update"></li>
+        <li><input type="submit" value="Delete" id="delete" name="delete"></li>
+    </ul>
+    </form>
+  {% endif %}
+
+  {% if error %}
+    <p>{{error}}</p>
+    {% endif %}
+</div>
+    <form action="{% url 'download' %}" method="post">
+         {% csrf_token %}
+        <input type="submit" value="Download">
+    </form>
+<script src="{%static 'main.js' %}"></script>
+</body>
+</html>

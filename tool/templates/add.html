@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{%static 'main.css' %}">
+    <meta charset="UTF-8">
+    <title>Add-new record</title>
+</head>
+<body>
+<h1>Enter Data</h1>
+<h3>Note: First field should be unique</h3>
+<form action="{% url 'add'%}" method="post">
+    {% csrf_token %}
+    {% for i in range %}
+        <input type="text" name="{{i}}" required>
+    {% endfor %}
+    <input type="hidden" value="{{size}}" name="size">
+    <input type="submit" value="Add">
+</form>
+</body>
+</html>
